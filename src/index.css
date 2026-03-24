@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-golden: #D1DFE8;
+  --color-teal: #547792;
+  --color-lightgreen: #A8BBA3;
+  --color-lightGolden: #f5c857;
+  --color-lightestGolden: #ffee91;
+  --color-sky: #abe0f0;
+  --color-lightGray: #d3d3d3;
+  --color-charcoalDark: #181C14;
+  --color-primaryButton: #0B1D51;
+  --color-mercadoPrimary: #FFE600;
+
+  --font-primary: "Poppins", sans-serif;
+  --font-secondary: "Roboto", sans-serif;
+  --font-snpro: "SN Pro", sans-serif;
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+
+    to {
+      height: 0;
+    }
+  }
+}
+
+@layer base {
+  body {
+    font-family: var(--font-snpro);
+    overflow-x: hidden;
+  }
+
+  /* Main app container - centered mobile layout */
+  #root {
+    min-height: 100vh;
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative;
+    background: white;
+  }
+
+  /* Prevent body scroll when sheet or dialog is open but keep content visible */
+  body:has([data-slot="sheet-content"][data-state="open"]),
+  body:has([data-slot="dialog-content"][data-state="open"]) {
+    overflow: hidden;
+  }
+}
+
+/* Ensure sheet overlay doesn't hide content */
+[data-radix-portal] {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+}
+
+/* Make sure the sheet backdrop is centered over the content */
+[data-radix-portal] [data-radix-dialog-overlay] {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Center the sheet content properly */
+[data-radix-portal] [data-radix-dialog-content] {
+  position: fixed;
+  z-index: 51;
+}
+
+/* Piston container */
+.piston {
+  width: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: pistonMove 1.2s ease-in-out infinite;
+}
+
+/* Delays for engine effect */
+.piston-delay-0 {
+  animation-delay: 0s;
+}
+
+.piston-delay-1 {
+  animation-delay: 0.2s;
+}
+
+.piston-delay-2 {
+  animation-delay: 0.4s;
+}
+
+/* Piston head */
+.piston-head {
+  width: 24px;
+  height: 14px;
+  background: linear-gradient(145deg, #1f2937, #374151);
+  border-radius: 4px;
+}
+
+/* Piston rod */
+.piston-rod {
+  width: 6px;
+  height: 36px;
+  background: #9ca3af;
+  border-radius: 3px;
+  margin-top: 4px;
+}
+
+/* Keyframes */
+@keyframes pistonMove {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
