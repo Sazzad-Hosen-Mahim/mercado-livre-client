@@ -203,7 +203,7 @@ const Navbar = () => {
             </div>
 
             {/* Right side icons */}
-            <div className="flex items-center gap-1">
+            <div className=" flex items-center gap-1">
               <a href="/event" className="p-3 text-black hover:bg-black/5 rounded-2xl transition-colors">
                 <MdEvent className="h-6 w-6" />
               </a>
