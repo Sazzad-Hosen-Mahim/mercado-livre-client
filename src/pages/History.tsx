@@ -97,11 +97,11 @@ const History = () => {
 
     const tabs: { label: string; value: HistoryType }[] = [
         { label: 'Cashout', value: 'withdraw' },
-        { label: 'Check In & Cash In', value: 'other' }
+        { label: 'Daily Boost & Cash In', value: 'other' }
     ];
 
     const subTabs: { label: string; value: 'checkIn' | 'recharge' }[] = [
-        { label: 'Check In', value: 'checkIn' },
+        { label: 'Daily Boost', value: 'checkIn' },
         { label: 'Cash In', value: 'recharge' }
     ];
 

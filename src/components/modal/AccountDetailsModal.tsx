@@ -39,8 +39,8 @@ const AccountDetailsModal: React.FC<AccountDetailsModalProps> = ({
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 ">
             <div className="w-full max-w-md bg-white rounded-xl shadow-md">
                 {/* Header */}
-                <div className="flex items-center justify-between px-5 py-4 bg-teal/30 rounded-t-xl">
-                    <h2 className="text-lg font-semibold text-center mx-auto">Account Details</h2>
+                <div className="flex items-center justify-between px-5 py-4 bg-black rounded-t-xl">
+                    <h2 className="text-lg font-semibold text-center mx-auto text-white">Account Details</h2>
                     {/* <button onClick={onClose}>
                         <X className="w-5 h-5 text-gray-600" />
                     </button> */}
@@ -90,7 +90,7 @@ const AccountDetailsModal: React.FC<AccountDetailsModalProps> = ({
                             </p>
                         </div>
                         <div>
-                            <p className="text-sm text-gray-700 font-bold">Trial Amount</p>
+                            <p className="text-sm text-gray-700 font-bold">Learning Amount</p>
                             <p className="font-semibold text-gray-700">{formatMoney(data?.trialRoundBalance)}</p>
                         </div>
                     </div>
@@ -100,7 +100,7 @@ const AccountDetailsModal: React.FC<AccountDetailsModalProps> = ({
                 <div className="px-5 py-4">
                     <button
                         onClick={onClose}
-                        className="w-full py-2 bg-primaryButton cursor-pointer text-white rounded hover:bg-gray-900"
+                        className="w-full py-2 bg-black cursor-pointer text-white rounded hover:bg-gray-900"
                     >
                         Close
                     </button>

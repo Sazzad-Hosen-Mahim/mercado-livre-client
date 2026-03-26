@@ -164,7 +164,7 @@ const Task: React.FC = () => {
       return;
     }
     if ((user?.orderRound?.round === "round_one") && (user?.completedOrdersCount === 25)) {
-      setErrorMessageBlack("Your round one has been completed. Now, to start the next round, please contact your customer services.");
+      setErrorMessageBlack("Your round one has been completed. Now, to start the next round, please contact your support line.");
       setOpenErrorModalBlack(true);
       return;
     }
@@ -226,100 +226,65 @@ const Task: React.FC = () => {
 
 
   return (
-    <div className="max-w-[500px] mx-auto bg-white h-auto relative">
+    <div className="max-w-[500px] mx-auto min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
       {/* Optional: Loading Overlay for Background Refetches */}
       {isFetching && userData && (
-        <div className="fixed top-0 left-0 right-0 z-50 bg-slate-900 text-white text-center py-1 text-sm max-w-[500px] mx-auto">
-          Checking for updates...
+        <div className="fixed top-3 left-1/2 -translate-x-1/2 z-50 bg-black text-white text-xs px-4 py-1 rounded-full shadow">
+          Syncing...
         </div>
       )}
       {/* Header */}
-      <div className="bg-white border-b border-gray-200 px-4 py-3">
-        <div className="flex items-center text-sm text-gray-600 mb-3">
-          <span className="hover:text-gray-900 cursor-pointer">Home</span>
-          <ChevronRight className="w-4 h-4 mx-1" />
-          <span className="text-gray-900">Go Shopping</span>
-        </div>
-        <h1 className="text-2xl font-bold text-gray-900">Mercado Livre Order</h1>
+      <div className="px-5 pt-6 pb-4">
+        <p className="text-xs text-gray-500 mb-1">Dashboard</p>
+        <h1 className="text-2xl font-semibold text-gray-900">Shopping Tasks</h1>
       </div>
 
       {/* Tab Headers */}
-      <div className="grid grid-cols-2 border-b border-gray-300">
+      {/* <div className="grid grid-cols-2 border-b border-gray-300">
         <div className="text-center py-3 font-semibold text-gray-900 border-b-2 border-gray-900">
           Ng.Collection
         </div>
         <div className="text-center py-3 font-semibold text-gray-600">
           Description
         </div>
-      </div>
+      </div> */}
 
       {/* Product List */}
-      <div className="divide-y divide-gray-200">
+      <div className="px-4 space-y-3">
         {tasks.map((task) => (
-          <div
-            key={task.id}
-            className="flex items-center justify-between px-4 py-4 hover:bg-gray-50 cursor-pointer transition-colors"
-          >
-            {/* Left Side: Number + Image + Details */}
-            <div className="flex items-center gap-4 flex-1">
-              {/* Number */}
-              <div className="text-lg font-semibold text-gray-900 w-6">
-                {task.id}
-              </div>
+          <div key={task.id} className="flex items-center gap-4 bg-white p-3 rounded-2xl shadow-sm hover:shadow-md transition">
+            <div className="text-lg font-semibold text-gray-900 w-6">
+              {task.id}
+            </div>
+            <img src={task.image} className="w-14 h-14 rounded-xl object-cover" />
 
-              {/* Product Image */}
-              <div className="w-16 h-16 bg-gray-100 rounded flex-shrink-0 overflow-hidden">
-                <img
-                  src={task.image}
-                  alt={task.title}
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    e.currentTarget.src =
-                      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Crect fill='%23e5e7eb' width='64' height='64'/%3E%3C/svg%3E%3C/svg%3E";
-                  }}
-                />
-              </div>
-
-              {/* Product Details */}
-              <div className="flex-1">
-                <h3 className="text-sm font-medium text-gray-900 mb-1">
-                  {task.title}
-                </h3>
-                <div className="flex items-center gap-1 text-xs text-gray-600">
-                  <Star className="w-3 h-3 fill-current text-gray-900" />
-                  <span>{task.reviews}</span>
-                </div>
+            <div className="flex-1">
+              <h3 className="text-sm font-medium text-gray-900 line-clamp-2">{task.title}</h3>
+              <div className="flex items-center text-xs text-gray-500 mt-1">
+                <Star className="w-3 h-3 mr-1" />
+                {task.reviews}
               </div>
             </div>
 
-            {/* Right Arrow */}
-            <ChevronRight className="w-5 h-5 text-gray-400 flex-shrink-0" />
+            <ChevronRight className="text-gray-400" />
           </div>
         ))}
       </div>
 
       {/* Bottom Buttons */}
-      <div className="max-w-[500px] px-5 mx-auto bg-white border-t border-gray-200">
-        <div className="grid grid-cols-2 gap-2 mb-4 my-8">
-          <button
-            onClick={() => setOpenAccountModal(true)}
-            className="py-4 cursor-pointer rounded-sm text-white bg-teal hover:bg-teal/80 font-medium transition-colors"
-          >
-            Account Details
+      <div className="px-4 mt-6 pb-24">
+        <div className="grid grid-cols-2 gap-3 mb-4">
+          <button onClick={() => setOpenAccountModal(true)} className="bg-black text-white py-3 cursor-pointer rounded-xl text-sm hover:bg-gray-900">
+            Account
           </button>
 
-          <Link to="/order-record" className="py-4 cursor-pointer rounded-sm text-white text-center bg-teal hover:bg-teal/80 font-medium transition-colors">
-            Order Record
+          <Link to="/order-record" className="bg-gray-200 py-3 cursor-pointer rounded-xl text-sm text-center hover:bg-gray-300">
+            Records
           </Link>
         </div>
-        <button
-          onClick={handleStartClick}
-          className="w-full py-4 text-white cursor-pointer bg-primaryButton rounded-sm hover:bg-gray-900 font-semibold text-lg transition-colors"
-        >
-          Start{" "}
-          <span className="text-gray-200 ms-2">
-            {userData?.data?.completedOrdersCount} / 25
-          </span>
+
+        <button onClick={handleStartClick} className="w-full cursor-pointer bg-black text-white py-4 rounded-2xl text-lg font-semibold shadow-lg hover:bg-gray-900">
+          Start {user?.completedOrdersCount || 0}/25
         </button>
       </div>
 
@@ -399,7 +364,7 @@ const Task: React.FC = () => {
       />
 
       {/* Add padding at bottom to prevent content from being hidden behind fixed buttons */}
-      <div className="h-32"></div>
+      {/* <div className="h-32"></div> */}
     </div>
   );
 };

@@ -6,7 +6,7 @@ import { IoLogoWhatsapp } from "react-icons/io";
 const Contact = () => {
   return (
     <div>
-      <div className="relative bg-[url('/src/assets/contact/new-contact.jpg')] h-[680px] bg-cover bg-center flex items-center justify-center">
+      <div className="relative bg-[url('/src/assets/contact/contact.jpg')] h-[680px] bg-cover bg-center flex items-center justify-center">
         {/* Optional overlay */}
         <div className="absolute inset-0 bg-black/45" />
 
@@ -34,7 +34,7 @@ const Contact = () => {
         <div className="p-8 border-black border-2 mt-12">
           <div className="transition">
             <a
-              href="https://t.me/OfficialCustomerservice_00"
+              href=""
               target="_blank"
               rel="noopener noreferrer"
               className="flex justify-center items-center gap-2 cursor-pointer"

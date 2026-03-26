@@ -87,7 +87,7 @@ export default function AboutUs() {
             <AccordionContent className="pb-6 text-base text-gray-700 leading-relaxed">
               Promotion are not submitted after receiving a order will be in "Processing". All you need to do is sliding the "start" button to complete the outstanding Promotion. The Promotion will be temporarily frozen because you have been assigned a Exclusive promotion by the system. After you complete the Exclusive promotion, that task will be release.
               <br /><br />
-              <strong>Note:</strong> If you are unable to complete the Exclusive promotion within 72 hours, your account credit score will be lowered and you will have to cash in 50% of the insufficient amount in order to lift the freeze status.
+              <strong>Note:</strong> If you are unable to complete the Exclusive promotion within 72 hours, your account Honor Score will be lowered and you will have to cash in 50% of the insufficient amount in order to lift the freeze status.
             </AccordionContent>
           </AccordionItem>
 

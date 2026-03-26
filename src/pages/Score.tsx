@@ -150,11 +150,11 @@ const Score = () => {
                         </li>
                         <li className="flex items-start">
                             <span className="mr-2">•</span>
-                            <span>If the purchase is not completed for too long, the credit score will decrease</span>
+                            <span>If the purchase is not completed for too long, the Honor score will decrease</span>
                         </li>
                         <li className="flex items-start">
                             <span className="mr-2">•</span>
-                            <span>Membership reach 100 points, Apply Entire Amount Cash Out Credit point down during Cash Out process Need to make Credit score insurance</span>
+                            <span>Membership reach 100 points, Apply Entire Amount Cash Out Credit point down during Cash Out process Need to make Honor Score insurance</span>
                         </li>
                     </ul>
                 </div>
