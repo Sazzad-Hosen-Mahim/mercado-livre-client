@@ -93,26 +93,33 @@ const Login = () => {
       <div className="w-full p-6 shadow-md">
         <h2 className="text-2xl font-semibold text-center">Login</h2>
         <form onSubmit={handleSubmit(onSubmit)} className="mt-4">
-          {/* Phone Field */}
-          <div className="mb-4">
+          {/* Modern Phone Number Field */}
+          <div className="mb-6">
             <label className="block text-md font-medium text-gray-700 mb-3">
-              Phone
+              Phone Number
             </label>
-            {/* Input Wrapper */}
-            <div className="flex items-center border-1 border-gray-400 rounded-md focus-within:ring-2 focus-within:ring-blue-500 overflow-hidden">
-              <CountryCodeSelect
-                value={countryCode}
-                onChange={setCountryCode}
-              />
+
+            <div className="flex items-center bg-white border border-gray-300 rounded-2xl overflow-hidden focus-within:border-blue-500 focus-within:ring-1 focus-within:ring-blue-500 transition-all duration-200">
+
+              {/* Country Code Selector */}
+              <div className="pl-5 pr-3 border-r border-gray-200">
+                <CountryCodeSelect
+                  value={countryCode}
+                  onChange={setCountryCode}
+                />
+              </div>
+
+              {/* Phone Input */}
               <input
-                type="number"
+                type="tel"
                 {...register("phone")}
                 placeholder="1XXXXXXXXX"
-                className="w-full p-2 focus:outline-none"
+                className="flex-1 bg-transparent px-4 py-4 text-lg font-medium focus:outline-none placeholder:text-gray-400"
               />
             </div>
+
             {errors.phone && (
-              <p className="text-red-500 text-sm mt-1">
+              <p className="text-red-500 text-sm mt-2 ml-1">
                 {errors.phone.message}
               </p>
             )}
@@ -145,7 +152,7 @@ const Login = () => {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full cursor-pointer bg-teal text-white text-xl font-bold p-2 rounded-md hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full cursor-pointer bg-mercadoPrimary text-black/80 text-xl font-bold p-2 rounded-md hover:bg-mercadoPrimary/80 hover:drop-shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isLoading ? "Signing In..." : "Sign In"}
           </button>
@@ -158,7 +165,7 @@ const Login = () => {
           </p>
           <Link
             to="/signup"
-            className="w-full cursor-pointer border-2 text-black border-black text-xl text-center font-bold p-2 rounded-md hover:border-teal hover:bg-teal hover:text-white transition-colors"
+            className="w-full cursor-pointer border-2 text-black border-black text-xl text-center font-bold p-2 rounded-md hover:border-mercadoSecondary hover:bg-mercadoSecondary hover:text-white transition-colors"
           >
             Register
           </Link>
